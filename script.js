@@ -2,15 +2,16 @@ let captchChecked = false;
 
 function beforesubmit(event) {
   if (captchChecked) {
+    event.preventDefault();
     let output = document.querySelector(".outputdate");
-    let inputdate = document.querySelector(".inputdate");
-    console.log("inputdata :", inputdate.value);
+    let input = document.querySelector(".inputdate");
+    console.log("inputdata :", input.value);
 
-    let formattedDate = new Date(inputdate.value).toLocaleDateString("en-IN");
-    outputdate.value = formattedDate;
+    let formattedDate = new Date(input.value).toLocaleDateString("en-IN");
+    output.value = formattedDate;
   }else{
     alert("Please Check the reCAPTCHA box");
-    event.preventDefault();
+    return;
   }
 }
 

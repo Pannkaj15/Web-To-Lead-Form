@@ -2,7 +2,6 @@ let captchChecked = false;
 
 function beforesubmit(event) {
   if (captchChecked) {
-    event.preventDefault();
     let output = document.querySelector(".outputdate");
     let input = document.querySelector(".inputdate");
     console.log("inputdata :", input.value);
@@ -11,7 +10,7 @@ function beforesubmit(event) {
     output.value = formattedDate;
   }else{
     alert("Please Check the reCAPTCHA box");
-    return;
+    event.preventDefault();
   }
 }
 
